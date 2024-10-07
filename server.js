@@ -2,30 +2,12 @@ const express = require("express");
 const dotenv = require("dotenv");
 const authRoutes = require("./routes/authRoutes");
 const cors = require("cors");
-const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
-const swaggerOptions = {
-  swaggerDefinition: {
-    openapi: "3.0.0", 
-    info: {
-      title: "Smart Inventory Management API",
-      description: "API documentation for Smart Inventory Management",
-      version: "1.0.0",
-    },
-    servers: [
-      {
-        url: "http://localhost:5000", 
-      },
-    ],
-  },
-  apis: ["./routes/*.js"], 
-};
-const swaggerDocs = swaggerJsDoc(swaggerOptions);
-
+const swaggerDocument = require('./config/swagger.json');
 dotenv.config();
 const app = express();
 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(cors());
 app.use(express.json());
 
