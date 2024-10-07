@@ -1,0 +1,7 @@
+CREATE TABLE warehouse.Warehouse (
+    WarehouseID SERIAL PRIMARY KEY,
+    WarehouseName VARCHAR(255) NOT NULL,
+    Location TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

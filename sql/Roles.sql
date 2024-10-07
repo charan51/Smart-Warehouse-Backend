@@ -1,0 +1,4 @@
+CREATE TABLE users.Roles (
+    RoleID SERIAL PRIMARY KEY,
+    RoleName VARCHAR(50) UNIQUE NOT NULL
+);

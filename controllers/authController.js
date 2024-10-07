@@ -1,9 +1,8 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
-
 exports.register = async (req, res) => {
-    const { name, email, password } = req.body;
+    const { name, email, password, RoleID } = req.body;
     try {
         const existingUser = await User.getUserByEmail(email);
         if (existingUser) {
