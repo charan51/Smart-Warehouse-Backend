@@ -1,4 +1,4 @@
-CREATE TABLE Products (
+CREATE TABLE products.Products (
     ProductID SERIAL PRIMARY KEY,
     ProductName VARCHAR(255) NOT NULL,
     Description TEXT,
@@ -6,5 +6,7 @@ CREATE TABLE Products (
     Cost DECIMAL(10, 2),
     Barcode VARCHAR(50) UNIQUE,
     CategoryID INT NOT NULL REFERENCES Categories(CategoryID),
-    SupplierID INT NOT NULL REFERENCES Suppliers(SupplierID)
+    SupplierID INT REFERENCES Suppliers(SupplierID), 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
