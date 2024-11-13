@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const authRoutes = require("./routes/authRoutes");
 const productRoute = require('./routes/productRoutes');
+const dashboardRoute = require('./routes/dashboardRoutes');
 const cors = require("cors");
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require('./config/swagger.json');
@@ -14,6 +15,7 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoute);
+app.use("/api/dashboard", dashboardRoute);
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Something went wrong!");

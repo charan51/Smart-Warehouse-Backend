@@ -40,3 +40,21 @@ GROUP BY
     i.StockInDate
 ORDER BY 
     i.StockInDate;
+
+-- Based on barcode
+SELECT 
+    p.ProductName AS "Product",
+    p.Barcode AS "Barcode",
+    c.CategoryName AS "Category",
+    s.SupplierName AS "Supplier",
+    p.Price AS "Price",
+    p.Cost AS "Cost",
+    p.Description AS "Description"
+FROM 
+    products.Products AS p
+JOIN 
+    products.Categories AS c ON p.CategoryID = c.CategoryID
+LEFT JOIN 
+    suppliers.Suppliers AS s ON p.SupplierID = s.SupplierID
+WHERE 
+    p.Barcode = '1234444';
