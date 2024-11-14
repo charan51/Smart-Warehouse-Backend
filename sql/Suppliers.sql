@@ -8,3 +8,4 @@ CREATE TABLE Suppliers.Suppliers (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
